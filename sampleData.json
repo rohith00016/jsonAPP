@@ -1,10 +1,10 @@
 {
    "id": 6,
    "questionName": "Sample Question",
-   "concept": "SQL",
+   "tags": ["SQL","DQL"],
    "status": "unsolved",
    "hardnessScore": "1",
-   "readme": "Sample readme text...",
+   "readme": "<p><strong><span style=\"font-size: 24px;\">SQL Lesson 2.1: SELECT queries 102</span></strong></p> <p>To retrieve data from a SQL database, we need to write SELECT statements, which are often colloquially refered to as queries. A query in itself is just a statement which declares what data we are looking for, where to find it in the database, and optionally, how to transform it before it is returned. It has a specific syntax though, which is what we are going to learn in the following exercises.</p> <br> <p>As we mentioned in the introduction, you can think of a table in SQL as a type of an entity (ie. Dogs), and each row in that table as a specific instance of that type (ie. A pug, a beagle, a different colored pug, etc). This means that the columns would then represent the common properties shared by all instances of that entity (ie. Color of fur, length of tail, etc).</p> <p>And given a table of data, the most basic query we could write would be one that selects for a couple columns (properties) of the table with all the rows (instances).</p> <p>Select query for a specific columns</p> <br> <p>SELECT column, another_column, &hellip;</p> <p>FROM mytable;</p> <br><p>The result of this query will be a two-dimensional set of rows and columns, effectively a copy of the table, but only with the columns that we requested.</p><p><br></p><p>If we want to retrieve absolutely all the columns of data from a table, we can then use the asterisk (*) shorthand in place of listing all the column names individually.</p><p><br></p><p>Select query for all columns</p><p>SELECT *&nbsp;</p><p>FROM mytable;</p><br><p>This query, in particular, is really useful because it&apos;s a simple way to inspect a table by dumping all the data at once.</p>",
    "Exercise": {
      "heading": "Exercise - 2 Tasks",
      "desc": "Sample exercise description..."
@@ -12,10 +12,6 @@
    "tableNames": ["employees", "users"],
    "dataCMD": "CREATE TABLE employees (\n  employee_id INT PRIMARY KEY,\n  first_name VARCHAR(50),\n  last_name VARCHAR(50),\n  job_title VARCHAR(100),\n  department VARCHAR(50),\n  salary DECIMAL(10, 2)\n);\n\n-- Insert sample data into the employees table\nINSERT INTO employees (employee_id, first_name, last_name, job_title, department, salary)\nVALUES\n  (1, 'John', 'Doe', 'Software Engineer', 'Engineering', 75000.00),\n  (2, 'Jane', 'Smith', 'Marketing Manager', 'Marketing', 65000.00),\n  (3, 'Michael', 'Johnson', 'Sales Representative', 'Sales', 55000.00),\n  (4, 'Emily', 'Williams', 'HR Specialist', 'Human Resources', 60000.00),\n  (5, 'David', 'Brown', 'Data Analyst', 'Analytics', 62000.00),\n  (6, 'Sarah', 'Miller', 'Product Manager', 'Product Management', 78000.00),\n  (7, 'Alex', 'Lee', 'Mentor', 'Training', 80000.00),\n  (8, 'Maria', 'Garcia', 'Mentor', 'Training', 85000.00),\n  (9, 'Chris', 'Wong', 'Mentor', 'Training', 82000.00),\n  (10, 'Laura', 'Taylor', 'Mentor', 'Training', 79000.00); CREATE TABLE users(\n  users_id INT PRIMARY KEY,\n  first_name VARCHAR(50),\n  last_name VARCHAR(50),\n  job_title VARCHAR(100),\n  department VARCHAR(50),\n  salary DECIMAL(10, 2)\n);\n\n-- Insert sample data into the users table\nINSERT INTO users (users_id, first_name, last_name, job_title, department, salary)\nVALUES\n  (1, 'John', 'Doe', 'Software Engineer', 'Engineering', 75000.00),\n  (2, 'Jane', 'Smith', 'Marketing Manager', 'Marketing', 65000.00),\n  (3, 'Michael', 'Johnson', 'Sales Representative', 'Sales', 55000.00),\n  (4, 'Emily', 'Williams', 'HR Specialist', 'Human Resources', 60000.00),\n  (5, 'David', 'Brown', 'Data Analyst', 'Analytics', 62000.00),\n  (6, 'Sarah', 'Miller', 'Product Manager', 'Product Management', 78000.00),\n  (7, 'Alex', 'Lee', 'Mentor', 'Training', 80000.00),\n  (8, 'Maria', 'Garcia', 'Mentor', 'Training', 85000.00),\n  (9, 'Chris', 'Wong', 'Mentor', 'Training', 82000.00),\n  (10, 'Laura', 'Taylor', 'Mentor', 'Training', 79000.00);",
    "dataTableCMD": "SELECT * FROM employees;SELECT * FROM employees;",
-   "dclCommands": ["GRANT SELECT, INSERT, UPDATE ON employees TO user1", "REVOKE DELETE ON users FROM user2"],
-   "ddlCommands": ["CREATE TABLE employees (id INT, name VARCHAR(50), salary DECIMAL(10, 2))", "ALTER TABLE employees ADD COLUMN age INT", "DROP TABLE users"],
-   "dmlCommands": ["INSERT INTO employees (id, name, salary) VALUES (1, 'John Doe', 75000)", "UPDATE employees SET salary = salary * 1.1 WHERE age > 30", "DELETE FROM employees WHERE age < 25"],
-   "dqlCommands": ["SELECT name, salary FROM employees WHERE age > 25", "SELECT * FROM users JOIN employees ON users.id = employees.id", "SELECT AVG(salary) FROM employees GROUP BY department HAVING AVG(salary) > 60000"],
    "answers": [
      {
        "id": 1,
@@ -23,11 +19,7 @@
        "answer": "SELECT salary FROM employees",
        "output": {
          "columns": ["salary"],
-         "values": [[75000], [65000], [55000], [60000], [62000], [78000], [80000], [85000], [82000], [79000]],
-         "dclCommands": ["GRANT SELECT ON employees TO user1"],
-         "ddlCommands": ["CREATE TABLE employees (id INT, name VARCHAR(50), salary DECIMAL(10, 2))"],
-         "dmlCommands": ["INSERT INTO employees (id, name, salary) VALUES (1, 'John Doe', 75000)"],
-         "dqlCommands": ["SELECT salary FROM employees"]
+         "values": [[75000], [65000], [55000], [60000], [62000], [78000], [80000], [85000], [82000], [79000]]
        }
      }
    ]

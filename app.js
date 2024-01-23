@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
   res.send('Hello, Express!');
 });
 
-app.use('/', questionRoutes);
+app.use('/questions', questionRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
