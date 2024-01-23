@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const questionRoutes = require('./routes/questionRoutes');
 const connectDB = require('./db/dbConnection');
 const app = express();
-const port = 3000;
+require('dotenv').config();
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 

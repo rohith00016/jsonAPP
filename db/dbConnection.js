@@ -1,10 +1,8 @@
-// db.js
-
 const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const connection = await mongoose.connect('mongodb://localhost:27017/Questions');
+    const connection = await mongoose.connect(process.env.CONNECTION_STRING);
     console.log(`MongoDB connected: ${connection.connection.host}`);
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
